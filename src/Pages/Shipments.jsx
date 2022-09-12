@@ -5,7 +5,7 @@ import UploadedDocs from '../Components/UploadedDocs'
 
 function Shipments() {
   return (
-    <div>
+    <div className='m-4 border border-black'>
         <ShipmentsNav/>
         <ExportBox/>
         <UploadedDocs/>
