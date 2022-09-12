@@ -9,7 +9,7 @@ function UploadedDocs() {
       <DocsNavigation/>
 
       {/* upload header */}
-      <div>
+      <div className='flex justify-between items-center'>
         {/* left */}
         <div>
           <p>Uploaded Documents</p>

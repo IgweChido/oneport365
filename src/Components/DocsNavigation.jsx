@@ -2,28 +2,28 @@ import React from 'react'
 
 function DocsNavigation() {
   return (
-    <div>
+    <div >
       {/* navigation */}
-      <div>
+      <div className=' flex items-center  mb-6'>
 
         {/* documents */}
-        <div>
-          <p>Documents</p>
+        <div className='py-2 px-6 border-b-2 border-black'>
+          <p className='font-semibold text-base'>Documents</p>
         </div>
 
         {/* Cargo details */}
-        <div>
-          <p>Cargo Details</p>
+        <div className='py-2 px-6'>
+          <p className='font-semibold text-base'>Cargo Details</p>
         </div>
 
         {/* Additional Services */}
-        <div>
-          <p>Additional Services</p>
+        <div className='py-2 px-6'>
+          <p className='font-semibold text-base'>Additional Services</p>
         </div>
 
         {/* Rates */}
-        <div>
-          <p>Rates</p>
+        <div className='py-2 px-6'>
+          <p className='font-semibold text-base'>Rates</p>
         </div>
         
       </div>
