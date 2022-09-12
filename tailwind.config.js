@@ -4,7 +4,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'exp-img': "url('./Images/exportt.svg')",
+       
+      },
+      colors: {
+        'main-green': '#3AB44A;',
+      },
+    },
   },
   plugins: [],
 }
