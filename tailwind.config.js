@@ -11,6 +11,10 @@ module.exports = {
       },
       colors: {
         'main-green': '#3AB44A;',
+        '#FAFFFB': '#FAFFFB',
+      },
+      width: {
+        '39-per': '39%',
       },
     },
   },
