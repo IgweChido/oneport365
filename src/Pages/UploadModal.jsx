@@ -1,5 +1,5 @@
 import React from 'react'
-import UploadBox from './UploadBox'
+import UploadBox from '../Components/UploadBox'
 
 function UploadModal() {
   return (
@@ -31,9 +31,10 @@ function UploadModal() {
           {/* upload button */}
           <button>Upload</button>
 
-
         </form>
       </div>
+
+      
     </div>
   )
 }

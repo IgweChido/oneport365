@@ -3,6 +3,11 @@ import React from 'react'
 function UploadBox() {
   return (
     <div>
+
+      
+
+
+
         {/* image */}
         <div>
             <img src='' alt=''></img>
