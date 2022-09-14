@@ -15,6 +15,7 @@ module.exports = {
       },
       width: {
         '39-per': '39%',
+        '620': '620px',
       },
     },
   },

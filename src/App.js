@@ -7,8 +7,8 @@ import UploadModal from './Pages/UploadModal';
 function App() {
   return (
     <div className="App">
-      {/* <Shipments/> */}
-      <UploadModal/>
+      <Shipments/>
+      {/* <UploadModal/> */}
     </div>
   );
 }

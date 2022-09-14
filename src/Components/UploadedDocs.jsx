@@ -10,14 +10,14 @@ function UploadedDocs() {
       <DocsNavigation/>
 
       {/* upload header */}
-      <div className='flex justify-between items-center mb-7'>
+      <div className='flex-col sm:flex-row sm:flex justify-between items-center mb-7'>
         {/* left */}
         <div>
-          <p className='text-base font-semibold'>Uploaded Documents</p>
+          <p className='text-base font-semibold mb-7 sm:mb-0'>Uploaded Documents</p>
         </div>
 
         {/* Right */}
-        <div className='lg:flex lg:items-center lg:gap-x-3'>
+        <div className='flex items-center gap-x-3'>
 
           {/* button 1 */}
           <button className='border border-gray rounded-md p-3.5 font-bold text-base'>Request Document</button>

@@ -2,9 +2,9 @@ import React from 'react'
 
 function DocsNavigation() {
   return (
-    <div >
+    <div className='overflow-x-auto'>
       {/* navigation */}
-      <div className=' flex items-center  mb-6'>
+      <div className=' flex items-center  mb-6 w-full min-w-[620px] border border-black'>
 
         {/* documents */}
         <div className='py-2 px-6 border-b-2 border-black'>
