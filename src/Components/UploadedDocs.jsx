@@ -2,8 +2,11 @@ import React from 'react'
 import DocsNavigation from './DocsNavigation'
 import DocumentBoxs from './DocumentBoxs'
 import upload from '../Images/doc-up.svg'
+import { useDispatch } from 'react-redux'
+import { ShowModal } from '../Reducers/ModalSlice'
 
-function UploadedDocs() {
+function UploadedDocs({setFixed}) {
+  const dispatch = useDispatch()
   return (
     <div>
 
@@ -23,7 +26,11 @@ function UploadedDocs() {
           <button className='border border-gray rounded-md p-3.5 font-bold text-base'>Request Document</button>
 
           {/* button 2 */}
-          <button className=' flex items-center rounded-md p-3.5 font-bold text-base text-white bg-main-green gap-x-2 '>
+          <button className=' flex items-center rounded-md p-3.5 font-bold text-base text-white bg-main-green gap-x-2 '
+          onClick={()=>{
+            dispatch(ShowModal(true))
+            setFixed(true)
+          }}>
             <p>Upload Document</p>
             <img src={upload} alt=''></img>
           </button>

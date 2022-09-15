@@ -4,10 +4,10 @@ function DocsNavigation() {
   return (
     <div className='overflow-x-auto'>
       {/* navigation */}
-      <div className=' flex items-center  mb-6 w-full min-w-[620px] border border-black'>
+      <div className=' flex items-center  mb-6 w-full min-w-[620px] '>
 
         {/* documents */}
-        <div className='py-2 px-6 border-b-2 border-black'>
+        <div className='py-2 px-6 border-b-2 border-main-green'>
           <p className='font-semibold text-base'>Documents</p>
         </div>
 

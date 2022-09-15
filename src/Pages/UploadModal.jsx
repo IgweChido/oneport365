@@ -1,16 +1,47 @@
-import React from 'react'
+
 import UploadBox from '../Components/UploadBox'
 import cancel from '../Images/cancel.svg'
+import {useDispatch, useSelector} from 'react-redux'
+import { ShowModal } from '../Reducers/ModalSlice'
+import React, { useState, useRef, useEffect } from 'react'
 
-function UploadModal() {
+function UploadModal({setFixed}) {
+  const ref = useRef()
+  const dispatch = useDispatch()
+  const {mSlice}= useSelector((state)=>state.modal)
+
+    // user growth  side outside click handler
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (ref.current && !ref.current.contains(event.target)) {
+          mSlice  &&
+           dispatch(ShowModal(false))
+           setFixed(false)
+          
+        }
+        
+      };
+      document.addEventListener('click', handleClickOutside, true);
+      return () => {
+        document.removeEventListener('click', handleClickOutside, true);
+      };
+    }, [ mSlice]);
+
   return (
-    <div className='bg-black opacity-50 w-screen h-screen relative'>
+    <div className='flex  w-screen h-screen fixed left-0 top-0 z-10'>
+      <div className='bg-black opacity-50 h-screen w-full'>
+
+      </div>
 
       {/* positioned div */}
-      <div className='absolute right-0 bg-white h-screen lg:w-39-per md:w-2/4 lg:py-8 lg:px-9 p-4'>
+      <div ref={ref} className='absolute right-0 bg-white h-screen lg:w-39-per md:w-2/4 lg:py-8 lg:px-9 p-4 opacity-100'>
       
         {/* cancel button */}
-        <div className='sm:mb-6 mb-6 md:mb-8 '>
+        <div className='sm:mb-6 mb-6 md:mb-8 cursor-pointer '
+        onClick={()=>{
+          dispatch(ShowModal(false))
+          setFixed(false)
+        }}>
           <img src={cancel} alt=''></img>
         </div>
 

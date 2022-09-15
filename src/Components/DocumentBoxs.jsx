@@ -5,7 +5,7 @@ import del from '../Images/delete.svg'
 function DocumentBoxs() {
   const [uploadd, setUploadd]= useState(true)
   return (
-    <div className='border border-2 flex items-center mb-5 rounded-lg justify-between h-32 px-7 py-6'>
+    <div className='border  flex items-center mb-5 rounded-lg justify-between h-32 px-7 py-6'>
         <div className=' flex items-center gap-x-5    '>
           {/* image */}
           <div>
