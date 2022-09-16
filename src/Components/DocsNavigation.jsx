@@ -1,8 +1,9 @@
 import React from 'react'
+import '../App.css'
 
 function DocsNavigation() {
   return (
-    <div className='overflow-x-auto'>
+    <div className='overflow-x-auto no-border'>
       {/* navigation */}
       <div className=' flex items-center  mb-6 w-full min-w-[620px] '>
 

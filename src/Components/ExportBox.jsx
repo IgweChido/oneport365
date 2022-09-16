@@ -5,7 +5,7 @@ import arrow from '../Images/arrow-angle.svg'
 
 function ExportBox() {
   return (
-    <div className='overflow-x-auto'>
+    <div className='overflow-x-auto no-border'>
    <div className='mb-12 w-full min-w-[620px]'>
 
         {/* header */}

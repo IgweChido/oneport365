@@ -1,0 +1,35 @@
+/* **************** animation for upload modal *************** */
+.animate-cont{
+    width: 95%;
+    height: 5px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin-bottom: 4px;
+}
+
+.animate-main{
+    background-color: #3AB44A;
+    /* width: 90%; */
+    height: 100%;
+    animation-name: load;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes load {
+    0%{
+        width: 0%;
+    }
+
+    50%{
+        width: 50%;
+    }
+    80%{
+        width: 80%;
+    }
+
+    100%{
+        width: 100%;
+    }
+    
+}

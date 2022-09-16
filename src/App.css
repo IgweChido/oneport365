@@ -6,3 +6,12 @@
 .App{
     font-family: 'Inter', sans-serif;
 }
+
+.no-border{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-border::-webkit-scrollbar{
+    display: none;
+}

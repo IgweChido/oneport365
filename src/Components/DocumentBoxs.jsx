@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import upload from '../Images/upload-doc.svg'
 import del from '../Images/delete.svg'
+import refresh from '../Images/refresh.svg'
 
 function DocumentBoxs() {
   const [uploadd, setUploadd]= useState(true)
@@ -31,10 +32,15 @@ function DocumentBoxs() {
           
         </div>
 
-        {
+        {  uploadd ?
           <div>
             <img src={del} alt=''></img>
           </div>
+          :
+          <div>
+            <img src={refresh} alt=''></img>
+          </div>
+
         }
     </div>
     
