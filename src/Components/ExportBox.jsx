@@ -1,9 +1,13 @@
 import React from 'react'
 import connect from '../Images/connect.svg'
 import arrow from '../Images/arrow-angle.svg'
+import {useDispatch, useSelector} from 'react-redux'
 
 
 function ExportBox() {
+
+    const customerr= useSelector((store)=>store.customer)
+
   return (
     <div className='overflow-x-auto no-border'>
    <div className='mb-12 w-full min-w-[620px]'>
@@ -36,8 +40,8 @@ function ExportBox() {
             {/* part1 */}
             <div>
                 <p className='font-semibold text-xs mb-6'>PORT OF DISCHARGE</p>
-                <p className='font-bold  text-2xl mb-2'>NGAPP</p>
-                <p className='font-semibold text-sm'>Lagos, Nigeria</p>
+                <p className='font-bold  text-2xl mb-2'>{customerr.dest.code}</p>
+                <p className='font-semibold text-sm'>{customerr.dest.city}</p>
             </div>
 
             {/* image */}

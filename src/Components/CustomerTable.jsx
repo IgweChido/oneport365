@@ -1,8 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import profile from '../Images/profile.png';
+import {useDispatch, useSelector} from 'react-redux'
+import { AddCurrentCust } from '../Reducers/CustomerSlice';
 
 function CustomerTable({customer}) {
+
+    const customerr= useSelector((store)=>store.customer)
+    const dispatch = useDispatch()
+
   return (
     <div className='customer-table mt-10'>
     <div className='overflow-x-auto'>
@@ -31,8 +37,16 @@ function CustomerTable({customer}) {
                     <td>{cust.ip_address}</td>
                     <td>
                         <div className='flex flex-1 justify-end items-center'>
-                            <Link to={`/shipment/${cust.id}`} state={{avatar:cust.Avatar, fname:cust.first_name, lname:cust.last_name, phone:cust.phone}} className='py-3.5 px-5 text-sm rounded-md border-[1px] border-lighterGrey'>Shipments</Link>
-                            <Link to='/' className='py-3.5 px-5 text-sm rounded-md bg-lightGreen ml-[19px] mr-[18px] text-white'>Edit</Link>
+                            <Link to={`/shipment/${cust.id}`} onClick={()=>{
+                                dispatch(AddCurrentCust({
+                                    avatar:cust.Avatar,
+                                    name:`${cust.first_name} ${cust.last_name} `, 
+                                    email: cust.email,   
+                                    phone:cust.phone,
+
+                                }))
+                            }} className='py-3.5 px-5 text-sm rounded-md border-[1px] border-lighterGrey'>Shipments</Link>
+                            <Link to='/' className='py-3.5 px-5 text-sm rounded-md bg-main-green ml-[19px] mr-[18px] text-white'>Edit</Link>
                         </div>
                     </td>     
                 </tr>

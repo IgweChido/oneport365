@@ -5,7 +5,7 @@ import UploadedDocs from '../Components/UploadedDocs'
 import {useDispatch, useSelector} from 'react-redux'
 import UploadModal from './UploadModal'
 
-function Shipments({setFixed}) {
+function ShipmentDetails({setFixed}) {
   const {mSlice}= useSelector((state)=>state.modal)
   console.log(mSlice)
   console.log('test1')
@@ -25,4 +25,4 @@ function Shipments({setFixed}) {
   )
 }
 
-export default Shipments
+export default ShipmentDetails

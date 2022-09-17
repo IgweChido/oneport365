@@ -1,4 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
+import CustomerSlice from './CustomerSlice'
 import ModalSlice from './ModalSlice'
 
 
@@ -10,6 +11,7 @@ const Store = configureStore({
       
        
         modal: ModalSlice,
+        customer: CustomerSlice,
     }
 })
 

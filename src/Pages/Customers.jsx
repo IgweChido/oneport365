@@ -1,11 +1,15 @@
 import React from 'react'
 import CustomerTable from '../Components/CustomerTable'
 import { useNavigate } from 'react-router-dom';
+import UseFetch from '../UseFetch';
 //icons
 import cross from '../Images/cross.svg';
 
 function Customers() {
+
     const navigate = useNavigate();
+    const{res, Error, loading}=UseFetch('https://demo3522726.mockable.io/get_customers')
+
   return (
     <div>
         
@@ -15,9 +19,9 @@ function Customers() {
             onClick={() => navigate(``)}
         >
             <span className='font-medium text-base'>Add Customer</span>
-            {<img src={cross} className='ml-2' alt="" /> || ''}
+            <img src={cross} className='ml-2' alt="" />
         </button>
-        <CustomerTable  />
+        <CustomerTable  customer={res}/>
     </div>
   )
 }

@@ -10,7 +10,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   const[fixed, setFixed]=useState(false)
   return (
-    <div className={fixed ?'fixed App w-full':"App"}>
+    <div className={fixed ?'fixed App w-full ':"App"}>
       <BrowserRouter>
       <Routes>
         <Route  exact path="/*" element={<MainContainer/>} />

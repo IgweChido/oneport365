@@ -1,14 +1,20 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import arrow from '../Images/arrow-back.svg'
 
 function ShipmentsNav() {
+
+  const navigate = useNavigate()
+
   return (
     <div>
         {/* headers */}
         <div className=" flex-col sm:flex sm:flex-row  justify-between items-center mb-4">
             {/* left */}
             <div className=' flex items-center gap-x-7 mb-4 sm:mb-0'>
-                <img src={arrow} alt=''></img>
+                <img src={arrow} className='cursor-pointer' alt='' onClick={()=>{
+                  navigate(-1)
+                }}></img>
                 <p className='text-xl sm:text-2xl font-semibold'>Shipments</p>
             </div>
 

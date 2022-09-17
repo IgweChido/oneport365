@@ -5,7 +5,7 @@ import caret from '../Images/caret.svg';
 
 function Head() {
   return (
-    <div className='px-[40px] md:px-[70px] py-6 flex items-center justify-between border-b-[1px]'>
+    <div className='px-[40px] md:px-[70px] py-6 flex items-center justify-between border-b-[1px] left-72 right-[18px] fixed  bg-white z-10'>
         <h1 className='text-[22px] md:text-[28px] font-semibold'>Customers</h1>
         <div className='flex items-center'>
             <img src={bell} alt="bell" />

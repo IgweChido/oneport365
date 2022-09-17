@@ -15,3 +15,62 @@
 .no-border::-webkit-scrollbar{
     display: none;
 }
+
+.input_container{
+    position: relative;
+}
+.input_container img{
+    position: absolute;
+    top: 42%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+
+/* sidebar */
+.about a {
+    color: #6B7280;
+}
+.botr{
+    border-top-left-radius: 10px;
+}
+
+table thead tr td{
+    padding-bottom: 10px;
+}
+table tbody td{
+    border: solid 1px #E5E7EB;
+    border-style: solid none none none;
+}
+table tbody tr td:first-child{
+    border-left-style: solid; 
+}
+table tbody tr td:last-child{
+    border-right-style: solid;
+}
+table tbody tr:last-child td{
+    border-bottom-style: solid;
+}
+table tbody tr:first-child td:first-child{
+    border-top-left-radius: 10px;
+}
+table tbody tr:first-child td:last-child{
+    border-top-right-radius: 10px;
+}
+table tbody tr:last-child td:first-child{
+    border-bottom-left-radius: 10px;
+}
+table tbody tr:last-child td:last-child{
+    border-bottom-right-radius: 10px;
+}
+.input_container{
+    position: relative;
+}
+.input_container img{
+    position: absolute;
+    top: 42%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+.shipment-button button{
+    width: fit-content;
+}

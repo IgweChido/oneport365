@@ -4,7 +4,7 @@ import MainPage from './MainPage'
 
 function MainContainer() {
   return (
-    <div className='flex font-inter min-h-screen'>
+    <div className='flex font-inter min-h-screen h-screen w-full relative '>
         
         
         <SideNav/>
