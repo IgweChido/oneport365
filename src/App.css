@@ -72,5 +72,13 @@ table tbody tr:last-child td:last-child{
     transform: translateY(-50%);
 }
 .shipment-button button{
-    width: fit-content;
+   
+}
+
+
+
+.over{
+    overflow-x: auto !important;
+    
+   
 }

@@ -9,6 +9,9 @@ import ShipmentsTable from '../Components/ShipmentsTable';
 import {useDispatch, useSelector} from 'react-redux'
 
 import UseFetch from '../UseFetch';
+import { useState } from 'react';
+import ShipmentTypeButton from '../Components/ShipmentTypeButton';
+import ShipmentDateButton from '../Components/ShipmentDateButton';
 
 
 
@@ -17,7 +20,12 @@ function Shipments() {
     const navigate = useNavigate();
     const customerr= useSelector((store)=>store.customer)
     const{res, Error, loading}=UseFetch(`https://demo3522726.mockable.io/get_single_customer_shipments/123456789`)
-    console.log(customerr)
+    console.log(res)
+    const [input, setInput]=useState()
+
+   
+
+
   return (
     <div>
       <div onClick={()=>{
@@ -47,9 +55,9 @@ function Shipments() {
         </div>
       </div>
 
-      <div className='overflow-x-auto '>
-        <div className='flex justify-between mt-10 shipment-button min-w-[1000px]'>
-          <div className='flex space-x-4 md:flex-nowrap justify-between md:w-auto max-w-[647px] '>
+      
+        <div className='gap-4 flex flex-col 2xl:flex 2xl:flex-row 2xl:justify-between mt-10 shipment-button w-full'>
+          <div className='flex gap-x-4 md:flex-nowrap justify-between md:w-auto max-w-[647px] '>
            
             <button 
                 className='py-3.5 px-6 text-white bg-[#3AB44A] rounded-md flex items-center text-white outline-none'
@@ -60,33 +68,22 @@ function Shipments() {
                 <img src={cross} className='ml-2' alt="" /> 
             </button>
            
-            <button 
-                className='py-3.5 px-6 text-[#374151] bg-[#F3F4F6] rounded-md flex items-center text-white outline-none'
-                
-                onClick={() => navigate(``)}
-                >
-                <span className='font-medium text-base'>Shipment Type</span>
-                <img src={caret} className='ml-2' alt="" />
-            </button>
+            <ShipmentTypeButton/>
            
-            <button 
-                className='py-3.5 px-6 text-[#374151] bg-[#F3F4F6] rounded-md flex items-center text-white outline-none'
-                
-                onClick={() => navigate(``)}
-                >
-                <span className='font-medium text-base'>Shipment Date</span>
-                <img src={caret} className='ml-2' alt="" />
-            </button>
+            <ShipmentDateButton/>
 
           </div>
           <div className="input_container">
-            <input type="text" className='w-72 py-2 px-3 rounded-md pl-10 border-grey border-[1px] placeholder:text-sm placeholder:text-[#9CA3AF] focus:outline-0' placeholder='search by shipment ID, Destination'/>
+            <input onChange={(e)=>{
+                setInput(e.target.value)
+            }}
+            type="text" className='w-72 py-2 px-3 rounded-md pl-10 border-grey border-[1px] placeholder:text-sm placeholder:text-[#9CA3AF] focus:outline-0' placeholder='search by shipment ID, Destination'/>
             <img src={search} alt="search" />
           </div>
-        </div>
+       
       </div>
 
-      <ShipmentsTable  data={res}/>
+      <ShipmentsTable  data={res} input={input}/>
       
     </div>
   )
