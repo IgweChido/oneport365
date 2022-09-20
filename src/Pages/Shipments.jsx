@@ -16,29 +16,32 @@ import ShipmentDateButton from '../Components/ShipmentDateButton';
 
 
 function Shipments() {
-
+  
     const navigate = useNavigate();
     const customerr= useSelector((store)=>store.customer)
     const{res, Error, loading}=UseFetch(`https://demo3522726.mockable.io/get_single_customer_shipments/123456789`)
     console.log(res)
     const [input, setInput]=useState()
+    const [type, setType]= useState('')
+    const[date,setDate]= useState()
+    const[date1,setDate1]= useState()
 
    
 
 
   return (
     <div>
-      <div onClick={()=>{
+      <div className='cursor-pointer' onClick={()=>{
         navigate(-1)
       }}><img className='mb-5' src={back} alt="" /></div>
 
-      <div className='flex flex-col md:flex-row space-y-5 justify-between bg-lightestGrey py-7 px-[26px] rounded-md border-[1px] border-grey w-auto md:max-w-[647px] '>
-        <div className='flex flex-col md:flex-row md:space-x-5'>
+      <div className='flex flex-col sm:flex-row space-y-5 sm:items-center justify-between bg-[#F9FAFB] py-7 px-[26px] rounded-md border-[1px] border-[#D1D5DB] w-auto md:max-w-[647px] '>
+        <div className=' flex flex-col md:flex-row md:space-x-5'>
           <img  className='w-20 h-20 rounded-full' src={customerr.cust.avatar} alt="profile" />
           <div>
-            <p className='font-medium text-lg'>{customerr.cust.name}</p>
-            <p className='text-lg'>{customerr.cust.email}</p>
-            <p className='text-lg'>{customerr.cust.phone}</p>
+            <p className='font-bold text-[18px]'>{customerr.cust.name}</p>
+            <p className='text-[18px] font-medium'>{customerr.cust.email}</p>
+            <p className='text-[18px] font-medium'>{customerr.cust.phone}</p>
           </div>
         </div>
         <div>
@@ -56,11 +59,11 @@ function Shipments() {
       </div>
 
       
-        <div className='gap-4 flex flex-col 2xl:flex 2xl:flex-row 2xl:justify-between mt-10 shipment-button w-full'>
-          <div className='flex gap-x-4 md:flex-nowrap justify-between md:w-auto max-w-[647px] '>
+        <div className=' gap-4 flex flex-col 2xl:flex 2xl:flex-row 2xl:justify-between mt-10 shipment-button w-full'>
+          <div className=' flex flex-col md:flex-row gap-4 md:flex-nowrap justify-between md:w-auto max-w-[647px] '>
            
             <button 
-                className='py-3.5 px-6 text-white bg-[#3AB44A] rounded-md flex items-center text-white outline-none'
+                className='py-3.5 px-6 text-white bg-[#3AB44A] rounded-md flex items-center text-white outline-none w-[214.93px]'
                 
                 onClick={() => navigate(``)}
                 >
@@ -68,22 +71,22 @@ function Shipments() {
                 <img src={cross} className='ml-2' alt="" /> 
             </button>
            
-            <ShipmentTypeButton/>
+            <ShipmentTypeButton setType={setType}/>
            
-            <ShipmentDateButton/>
+            <ShipmentDateButton setDate={setDate} setDate1={setDate1}/>
 
           </div>
           <div className="input_container">
             <input onChange={(e)=>{
                 setInput(e.target.value)
             }}
-            type="text" className='w-72 py-2 px-3 rounded-md pl-10 border-grey border-[1px] placeholder:text-sm placeholder:text-[#9CA3AF] focus:outline-0' placeholder='search by shipment ID, Destination'/>
+            type="text" className='w-[301px] py-[18px] px-[30px] rounded-md pl-10  border-[#D1D5DB] border-[1px] placeholder:text-sm placeholder:text-[#9CA3AF] focus:outline-0' placeholder='search by shipment ID, Destination'/>
             <img src={search} alt="search" />
           </div>
        
       </div>
 
-      <ShipmentsTable  data={res} input={input}/>
+      <ShipmentsTable  loading={loading} error={Error} data={res} input={input} typeButton={type} date={date} date1={date1}/> 
       
     </div>
   )

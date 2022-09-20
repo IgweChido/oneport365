@@ -16,19 +16,23 @@ function ExportBox() {
         <div className=' px-10 flex justify-between rounded-t-xl items-center h-24 bg-main-green '>
             {/* part1 */}
             <div className='flex items-center gap-x-2'>
-                <img src={arrow} alt=''></img>
-                <p className='text-white font-semibold text-xl'>Export</p>
+                { customerr.dest.type === 'export'?
+                    <img src={arrow} alt=''></img>
+                    :
+                    <img src={arrow} className='rotate-180' alt=''></img>
+                }
+                <p className='text-white font-semibold text-xl'>{customerr.dest.type}</p>
             </div>
 
             {/* part2 */}
             <div>
-                <p className='text-white text-lg'>Apr 02, 2022</p>
+                <p className='text-white text-lg'>{customerr.dest.date}</p>
             </div>
 
             {/* part3 */}
             <div>
                 <p className='text-white font-medium text-base opacity-70'>Shipment ID</p>
-                <p className='text-white text-lg'>489395758</p>
+                <p className='text-white text-lg'>{customerr.dest.id}</p>
             </div>
         </div>
 

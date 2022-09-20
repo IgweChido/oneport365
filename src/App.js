@@ -13,11 +13,11 @@ function App() {
     <div className={fixed ?'fixed App w-full ':"App"}>
       <BrowserRouter>
       <Routes>
-        <Route  exact path="/*" element={<MainContainer/>} />
+        <Route  exact path="/*" element={<MainContainer setFixed={setFixed}/>} />
       </Routes> 
       </BrowserRouter>
      
-      {/* <Shipments setFixed={setFixed}/> */}
+      {/* <Shipments /> */}
       
     </div>
   );

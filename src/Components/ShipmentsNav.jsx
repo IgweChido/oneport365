@@ -21,9 +21,9 @@ function ShipmentsNav() {
             {/* right */}
             <div className='flex items-center gap-x-3'>
                 {/* box1 */}
-                <button className='border border-gray rounded-md p-3.5 font-semibold sm:font-bold text-base h-20 sm:h-14 '>Invoice</button>
+                <button className='border border-gray rounded-md p-3.5 font-semibold sm:font-bold text-base h-20 sm:h-14 text-[#374151] '>Invoice</button>
                 {/* box2 */}
-                <button className='border border-gray rounded-md p-3.5 font-semibold font-bold text-base h-20 sm:h-14'>Track/Update Shipment</button>
+                <button className='border border-gray rounded-md p-3.5 font-semibold font-bold text-base h-20 sm:h-14 text-[#374151]'>Track/Update Shipment</button>
             </div>
         </div>
     </div>

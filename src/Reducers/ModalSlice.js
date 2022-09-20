@@ -8,7 +8,8 @@ export const ModalSlice= createSlice({
 
     // Initial State
     initialState:{
-        mSlice: false
+        mSlice: false,
+        pSlice: false,
     },
 
 
@@ -18,9 +19,12 @@ export const ModalSlice= createSlice({
         ShowModal:(state, action)=>{
             state.mSlice= action.payload;
         },
+        ShowNav:(state, action)=>{
+            state.pSlice= action.payload;
+        },
     }
 
 
 })
-export const{ShowModal}= ModalSlice.actions
+export const{ShowModal,ShowNav}= ModalSlice.actions
 export default ModalSlice.reducer

@@ -1,18 +1,24 @@
 import {React, useEffect,useState} from 'react'
 import { Link, useParams } from 'react-router-dom';
-
+import load from '../Images/loading.webp';
 import link from '../Images/link.svg';
 import imports from '../Images/import.svg';
 import exports  from '../Images/export.svg';
 import {useDispatch, useSelector} from 'react-redux'
 import { AddCurrentDest } from '../Reducers/CustomerSlice';
+import ShipmentTableHeaders from './ShipmentTableHeaders';
 
-function ShipmentsTable({data, input}) {
+function ShipmentsTable({data, input, typeButton, date, date1, error, loading}) {
 
   const dispatch = useDispatch()
    //  useEffect method to filter search data
    const [filter, setFilter]= useState()
    const[filtLoad, setFiltLoad]= useState(true)
+   const[filtDate, setFiltDate]= useState([])
+
+
+   
+
 
    useEffect(()=>{
     
@@ -46,20 +52,113 @@ function ShipmentsTable({data, input}) {
 },[data, input])
 
 
+    // useEffect to check the shipment type
+    useEffect(()=>{
+      if(typeButton?.length > 0){
+      const filtD = data?.filter((ship)=>(
+        ship.shipping_type === typeButton
+      ))
+
+      setFilter(filtD)
+      setFiltLoad(false)
+      }
+      else{
+        setFilter(data)
+        setFiltLoad(false)
+      }
+    },[typeButton, data])
+
+
+
+   
+    // useEffect to check date range
+    useEffect(()=>{
+
+       // function to parse date and date1
+    function parseDate(input) {
+      if(input?.length >= 10){
+        console.log('imput >>>')
+        var parts = input.match(/(\d+)/g);
+        // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+        return new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
+      }
+      else{
+        console.log('return null')
+      return null
+      }
+    
+    }
+     
+       function getDatesInRange(startDate, endDate) {
+     
+        const date = new Date(startDate?.getTime());
+        console.log('getting date')
+        const dates = [];
+      
+        while (date <= endDate) {
+          dates.push(new Date(date).toISOString());
+          date.setDate(date.getDate() + 1);
+        }
+      
+        setFiltDate(dates);
+      
+      }
+
+      getDatesInRange(parseDate(date),parseDate(date1))
+    },[date, date1])
+
+
+    // useEffect to filter the range dates
+    useEffect(()=>{
+      function compareDate(check){
+          for(var i=0; i<filtDate.length; i++){
+              if(check === filtDate[i].slice(0, 10)){
+                return true
+              }   
+          }
+          return false
+      }
+
+      if(filtDate?.length > 0){
+      const filtD = data?.filter((ship, id)=>(
+          compareDate(ship.shipment_pickup_date.slice(0, 10))
+      ))
+      setFilter(filtD)
+      setFiltLoad(false)
+      }
+      else{
+        setFilter(data)
+        setFiltLoad(false)
+      }
+      
+    },[data, filtDate])
+
+
   return (
-    <div className='overflow-x-auto mt-10'>
-        <table className='w-full min-w-[1000px]'>
+    <div className=' relative'>
+      <div className='overflow-x-auto mt-10 t-overflow   rounded-xl'>
+        <table className=' w-full min-w-[1100px] border-seperate  border-spacing-0'>
             <thead className='mb-[11px]'>
                 <tr>
-                  <td className='text-lightGrey text-xs font-medium'>SHIPMENT TYPE</td>
-                  <td className='text-lightGrey text-xs font-medium'>ORIGIN</td>
-                  <td className='text-white text-xs font-medium'>LINK</td>
-                  <td className='text-lightGrey text-xs font-medium'>DESTINATION</td>
-                  <td className='text-lightGrey text-xs font-medium'>SHIPMENT DATE</td>
-                  <td className='text-lightGrey text-xs font-medium'>SHIPPING ID</td>
+                 <ShipmentTableHeaders text={'SHIPMENT TYPE'}/>
+                 <ShipmentTableHeaders text={'ORIGIN'}/>
+                 <ShipmentTableHeaders text={'LINK'}/>
+                 <ShipmentTableHeaders text={'DESTINATION'}/>
+                 <ShipmentTableHeaders text={'SHIPMENT DATE'}/>
+                 <ShipmentTableHeaders text={'SHIPPING ID'}/>
+
                 </tr>
             </thead>
             <tbody>
+               {
+                    error &&
+                    <p className='text-[red]'>Something went wrong</p>
+                }
+                {loading &&
+                    <div className='absolute    w-[250px] h-[250px] top-[150px] left-[50%] ml-[-125px]'>
+                        <img src={load} alt=''></img>
+                    </div>
+                }
                 {
                   filter &&(
                     filter.length ===0?
@@ -67,8 +166,8 @@ function ShipmentsTable({data, input}) {
                     :
                     filter?.map(ship => (
                     <tr key={ship._id}>
-                        <td>
-                            <div className="name flex items-center space-x-3 py-[20px]">
+                        <td className=''>
+                            <div className=" name flex items-center space-x-3 py-[20px]">
                               {
                                 ship.shipping_type === 'import' ?
                                 <img className='ml-[26px] rotate-180' src={exports} alt="profile" />
@@ -76,28 +175,32 @@ function ShipmentsTable({data, input}) {
                                 <img className='ml-[26px]' src={exports} alt="profile" />
                               }
                               
-                                <p>{ship.shipping_type.charAt(0).toUpperCase() + ship.shipping_type.slice(1)}</p>
+                                <p className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.shipping_type.charAt(0).toUpperCase() + ship.shipping_type.slice(1)}</p>
                             </div> 
                         </td>
                         <td>
-                          <p>{ship.origin_port_code}</p>
-                          <p className='text-lightGrey'>{`${ship.origin_port_city}, ${ship.origin_port_country}`}</p>
+                          <p className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.origin_port_code}</p>
+                          <p className='text-[#6B7280] text-[14px] font-semibold'>{`${ship.origin_port_city}, ${ship.origin_port_country}`}</p>
                         </td>
                         <td>
                           <div><img src={link} alt="" /></div>
                         </td>
                         <td>
-                          <p>Airlington</p>
-                          <p className='text-lightGrey'>VA, USA</p>
+                          <p className='font-semibold text-[16px] 2xl:text-[18px]'>Airlington</p>
+                          <p className='text-[#6B7280] text-[14px] font-semibold'>VA, USA</p>
                         </td>
-                        <td>{ship.shipment_pickup_date.slice(0, 10)}</td>
-                        <td>{ship._id}</td>
+                        <td className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.shipment_pickup_date.slice(0, 10)}</td>
+                        <td className='font-semibold text-[16px] 2xl:text-[18px]'>{ship._id}</td>
                         <td>
                             <div className='flex flex-1 justify-end items-center'>
                                 <Link to='/shipmentdetail' onClick={()=>{
+                                
                                     dispatch(AddCurrentDest({
+                                      id: ship._id,
                                       code: ship.origin_port_code,
                                       city:`${ship.origin_port_city}, ${ship.origin_port_country}`,
+                                      type: ship.shipping_type,
+                                      date: ship.shipment_pickup_date.slice(0, 10)
                                     }))
                                 }} className='py-3.5 px-5 text-sm rounded-md bg-main-green ml-[19px] mr-[18px] text-white'>View Details</Link>
                             </div>
@@ -109,6 +212,8 @@ function ShipmentsTable({data, input}) {
           
      
       </div>
+    </div>
+    
   )
 }
 

@@ -1,15 +1,18 @@
 import React from 'react'
 import { useState } from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import cancel from '../Images/cancel.svg'
 import { NavLink, useLocation } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux'
+import { ShowNav } from '../Reducers/ModalSlice';
 
-//images
-import logo from '../Images/oneport-logo.svg';
+function PhoneNavigation({setFixed}) {
 
-function SideNav() {
-
+    const dispatch = useDispatch()
     const location = useLocation()
     const[nav,setNav] = useState(true)
+    const {pSlice}= useSelector((state)=>state.modal)
+    const ref = useRef()
 
     useEffect(()=>{
         if(location.pathname === '/shipmentdetail'){
@@ -19,14 +22,45 @@ function SideNav() {
             setNav(true)
         }
     },[location.pathname])
-  return (
-    <div className='border hidden laptop:block max-h-screen h-screen w-[250px] 2xl:w-[319px] shrink-0 py-[35px]   overflow-y-hidden '>
-        
-        <div className=' mb-[35px] w-fit block mx-auto '><img src={logo} alt="logo" className="w-40" /></div>
-        <div className='h-full  overflow-y-auto  px-[41px] pb-[100px] t-scroll'>
-            <nav className='mt-[50px]  flex flex-col space-y-8 about '>
 
-                <NavLink to='' className='flex items-center space-x-[24px] text-lg '>
+    // user growth  side outside click handler
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (ref.current && !ref.current.contains(event.target)) {
+            pSlice  &&
+             dispatch(ShowNav(false))
+             setFixed(false)
+            
+          }
+          
+        };
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+          document.removeEventListener('click', handleClickOutside, true);
+        };
+      }, [ pSlice]);
+
+  return (
+    <div className='laptop:hidden block flex  w-screen h-screen fixed left-0 top-0 z-10'>
+      <div className='bg-black opacity-50 h-screen w-full'>
+
+      </div>
+
+      {/* positioned div */}
+      <div ref={ref}  className=' absolute   right-0 bg-white h-screen w-full sm:w-3/4 lg:w-39-per md:w-2/4   opacity-100'>
+        {/* cancel button */}
+        <div className=' my-6 md:my-8 cursor-pointer  mx-[41px] '
+        onClick={()=>{
+         dispatch(ShowNav(false))
+         setFixed(false)
+        }}>
+          <img src={cancel} alt=''></img>
+        </div>
+
+        <div className=' overflow-y-auto h-full  t-scroll mt-[10px] mx-[41px] px-[15px] '>
+            <nav className='mt-[10px]   flex flex-col space-y-8 about mb-[100px]'>
+
+                <NavLink to='' className='  flex items-center space-x-[24px] text-lg '>
                     <svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 .6A2.4 2.4 0 0 0 .6 3v2.4A2.4 2.4 0 0 0 3 7.8h2.4a2.4 2.4 0 0 0 2.4-2.4V3A2.4 2.4 0 0 0 5.4.6H3ZM3 10.2a2.4 2.4 0 0 0-2.4 2.4V15A2.4 2.4 0 0 0 3 17.4h2.4A2.4 2.4 0 0 0 7.8 15v-2.4a2.4 2.4 0 0 0-2.4-2.4H3ZM10.2 3A2.4 2.4 0 0 1 12.6.6H15A2.4 2.4 0 0 1 17.4 3v2.4A2.4 2.4 0 0 1 15 7.8h-2.4a2.4 2.4 0 0 1-2.4-2.4V3ZM10.2 12.6a2.4 2.4 0 0 1 2.4-2.4H15a2.4 2.4 0 0 1 2.4 2.4V15a2.4 2.4 0 0 1-2.4 2.4h-2.4a2.4 2.4 0 0 1-2.4-2.4v-2.4Z" fill="#6B7280"/>
                     </svg>
@@ -128,10 +162,15 @@ function SideNav() {
                     <span className='block font-semibold text-[18px]'>Invoice</span>
                 </NavLink>
             </nav>
+       
         </div>
+       
         
+
+      </div>
+
     </div>
   )
 }
 
-export default SideNav
+export default PhoneNavigation

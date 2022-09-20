@@ -17,15 +17,15 @@ function DocumentBoxs() {
           {
             uploadd ?
           <div>
-            <p className='font-extrabold text-base leading-7'>NXP Form</p>
-            <p className='font-bold text-base leading-7'>NXP-Form.pdf</p>
-            <p className='text-sm font-semibold cursor-pointer' onClick={()=> setUploadd(false)}>Uploaded by you</p>
+            <p className='font-extrabold text-base leading-7 text-[#111827]'>NXP Form</p>
+            <p className='font-bold text-base leading-7 text-[#111827]'>NXP-Form.pdf</p>
+            <p className='text-sm font-normal cursor-pointer text-[#6B7280]' onClick={()=> setUploadd(false)}>Uploaded by you</p>
           </div>
             :
           <div>
-            <p className='font-extrabold text-base leading-7'>Portfolio.png</p>
+            <p className='font-extrabold text-base leading-7 text-[#111827]'>Portfolio.png</p>
           
-            <p className='text-sm font-semibold text-rose-500 cursor-pointer' onClick={()=> setUploadd(true)}>Opps! Upload failed</p>
+            <p className='text-sm font-normal text-rose-500 cursor-pointer' onClick={()=> setUploadd(true)}>Opps! Upload failed</p>
           </div>
 
           }

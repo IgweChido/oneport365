@@ -9,7 +9,8 @@ export const CustomerSlice= createSlice({
     // Initial State
     initialState:{
         cust:[],
-        dest:[]
+        dest:[],
+        id_cust:[],
     },
 
 
@@ -24,9 +25,13 @@ export const CustomerSlice= createSlice({
             state.dest = action.payload;
             console.log(action.payload)
         },
+        AddIdCust:(state, action)=>{
+            state.id_cust = action.payload;
+            console.log(action.payload)
+        },
     }
 
 
 })
-export const{AddCurrentCust,  AddCurrentDest}= CustomerSlice.actions
+export const{AddCurrentCust,  AddCurrentDest, AddIdCust}= CustomerSlice.actions
 export default CustomerSlice.reducer

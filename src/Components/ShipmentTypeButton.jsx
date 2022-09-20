@@ -3,7 +3,7 @@ import React from 'react'
 import { useState, useEffect,useRef } from 'react';
 import caret from '../Images/caret.svg'
 
-function ShipmentTypeButton() {
+function ShipmentTypeButton({setType}) {
 
     const[btn, setBtn]= useState(false)
 
@@ -30,7 +30,7 @@ function ShipmentTypeButton() {
         <div className='relative' ref={ref}>
 
           <button 
-              className='relative py-3.5 px-6 text-[#374151] bg-[#F3F4F6] rounded-md flex items-center text-white outline-none'
+              className='border border-[#D1D5DB] w-[193px] relative py-3.5 px-6 text-[#374151] bg-[#F3F4F6] rounded-md flex items-center text-white outline-none'
                onClick={() =>{
                   btn?
                   setBtn(false)
@@ -46,11 +46,18 @@ function ShipmentTypeButton() {
 
            {
             btn &&
-            <div className=' absolute top-[60px] rounded-md border border-[#F6F6F6] w-full left-0 bg-white z-30'>
-                <div className='cursor-pointer p-[10px] hover:bg-[#F6F6F6]'>
+            <div className=' absolute top-[60px] rounded-md border border-[#F6F6F6] w-[193px] md:w-full left-0 bg-white z-30'>
+                <div className='cursor-pointer p-[10px] hover:bg-[#F6F6F6]' onClick={()=>{
+                    setType('import')
+                    setBtn(false)
+                }}>
                   <p className='align-left'>Import</p>
                 </div>
-                <div className='cursor-pointer p-[10px] hover:bg-[#F6F6F6]'>
+
+                <div className='cursor-pointer p-[10px] hover:bg-[#F6F6F6]' onClick={()=>{
+                    setType('export')
+                    setBtn(false)
+                }}>
                   <p className='align-left'>Export</p>
                 </div>
                 

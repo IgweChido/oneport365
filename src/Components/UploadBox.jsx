@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import upload from '../Images/uploading.svg'
 import del from '../Images/delete.svg'
 import refresh from '../Images/refresh.svg'
+import icon from '../Images/Icon.svg'
 import '../Animate.css'
 
 function UploadBox() {
@@ -61,8 +62,11 @@ function UploadBox() {
               <img src={upload} alt=''></img>
           </div>
 
-          <p className='text-base font-normal text-center'>Click to upload a file or drag and drop</p>
-          <p className='text-sm font-normal text-center'>PNG, JPG, , GIF upto 5MB</p>
+          <p className='text-base font-normal text-center '>
+            <span className='text-main-green'>Click to upload a file </span>
+             or drag and drop
+          </p>
+          <p className='text-sm font-normal text-center text-[#6B7280]'>PNG, JPG, , GIF upto 5MB</p>
       </div>
       }
       
@@ -113,6 +117,7 @@ function UploadBox() {
       
       </div>
       }
+      
       { check2 &&
        <div className=' flex items-center gap-x-5    '>
         {/* image */}
@@ -135,12 +140,26 @@ function UploadBox() {
 
       }
 
-        {
-          check1 &&
-          <div>
-            <img src={refresh} alt=''></img>
-          </div>
-        }
+
+
+      {
+        check1 &&
+        <div>
+          {
+                !load &&
+                <div>
+                  <img src={refresh} alt=''></img>
+                </div>
+              }
+              {
+                load &&
+                <div>
+                  <img src={icon} alt=''></img>
+                </div>
+              }
+        </div>
+      }
+       
          {
           check2 &&
           <div>

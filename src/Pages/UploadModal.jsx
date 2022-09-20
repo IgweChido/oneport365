@@ -48,7 +48,7 @@ function UploadModal({setFixed}) {
         {/* header */}
         <div className='sm:mb-6 md:mb-12 mb-4'>
           <p className='font-semibold sm:text-2xl text-xl'>Documents Upload</p>
-          <p className='font-normal text-sm'>Rhoncus dui convallis lorem egestas molestie vitae nibh.</p>
+          <p className='font-normal text-sm text-[#6B7280]'>Rhoncus dui convallis lorem egestas molestie vitae nibh.</p>
         </div>
 
         {/* form area */}

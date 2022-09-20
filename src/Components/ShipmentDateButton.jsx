@@ -3,7 +3,7 @@ import { useState, useEffect,useRef } from 'react';
 import caret from '../Images/caret.svg'
 
 
-function ShipmentDateButton() {
+function ShipmentDateButton({setDate, setDate1}) {
 
     const[btn, setBtn]= useState(false)
     const ref= useRef()
@@ -25,6 +25,12 @@ function ShipmentDateButton() {
       }, [ btn]);
 
 
+
+   
+      
+      
+     
+
     
 
   return (
@@ -32,7 +38,7 @@ function ShipmentDateButton() {
         <div className='relative' ref={ref}>
 
             <button 
-                className='relative py-3.5 px-6 text-[#374151] bg-[#F3F4F6] rounded-md flex items-center text-white outline-none'
+                className=' w-[193px] border border-[#D1D5DB] relative py-3.5 px-6 text-[#374151] bg-[#F3F4F6] rounded-md flex items-center text-white outline-none'
                  onClick={() =>{
                     btn?
                     setBtn(false)
@@ -48,19 +54,23 @@ function ShipmentDateButton() {
   
              {
               btn &&
-              <div className=' absolute top-[60px] rounded-md border border-[#F6F6F6] w-full left-0 bg-white z-30'>
+              <div className=' absolute top-[60px] rounded-md border border-[#F6F6F6] w-[193px] md:w-full left-0 bg-white z-30'>
                   <div className='px-2 py-3'>
                     <label>Range 1:</label>
-                    <input
-                        type='text' placeholder='yyyy/mm/dd'
+                    <input onKeyUp={(e)=>{
+                        setDate(e.target.value)
+                    }}
+                        type='text' placeholder='yyyy-mm-dd'
                         className='form-input border-b w-3/4 outline-0  mb-6 mt-2.5  font-normal text-sm'
                     ></input>
                   </div>
 
                   <div className='px-2 py-3'>
                     <label>Range 2:</label>
-                    <input
-                        type='text' placeholder='yyyy/mm/dd'
+                    <input onKeyUp={(e)=>{
+                        setDate1(e.target.value)
+                    }}
+                        type='text' placeholder='yyyy-mm-dd'
                         className='form-input border-b w-3/4 outline-0  mb-6 mt-2.5  font-normal text-sm'
                     ></input>
                   </div>
