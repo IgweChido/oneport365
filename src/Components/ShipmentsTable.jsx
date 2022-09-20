@@ -137,7 +137,7 @@ function ShipmentsTable({data, input, typeButton, date, date1, error, loading}) 
   return (
     <div className=' relative'>
       <div className='overflow-x-auto mt-10 t-overflow   rounded-xl'>
-        <table className=' w-full min-w-[1100px] border-seperate  border-spacing-0'>
+        <table className=' w-full  border-separate border-spacing-0 min-w-[1000px]'>
             <thead className='mb-[11px]'>
                 <tr>
                  <ShipmentTableHeaders text={'SHIPMENT TYPE'}/>
@@ -175,23 +175,41 @@ function ShipmentsTable({data, input, typeButton, date, date1, error, loading}) 
                                 <img className='ml-[26px]' src={exports} alt="profile" />
                               }
                               
-                                <p className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.shipping_type.charAt(0).toUpperCase() + ship.shipping_type.slice(1)}</p>
+                                <p className='font-semibold text-[16px] 2xl:text-[18px] pr-[30px]'>{ship.shipping_type.charAt(0).toUpperCase() + ship.shipping_type.slice(1)}</p>
                             </div> 
                         </td>
+
+                        {/* import */}
+                        { ship.shipping_type === 'import' ?
+                          <td className='max-w-[150px] pr-[20px]'>
+                            <p className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.delivery_location}</p>
+                            <p className='text-[#6B7280] text-[14px] font-semibold'>{ship.state}</p>
+                          </td>
+                        :
+                          <td className='max-w-[150px] pr-[20px]'>
+                            <p className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.pickup_location}</p>
+                            <p className='text-[#6B7280] text-[14px] font-semibold'>{ship.state}</p>
+                          </td>
+                        }
                         <td>
-                          <p className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.origin_port_code}</p>
-                          <p className='text-[#6B7280] text-[14px] font-semibold'>{`${ship.origin_port_city}, ${ship.origin_port_country}`}</p>
+                          <div ><img  src={link} alt="" /></div>
                         </td>
-                        <td>
-                          <div><img src={link} alt="" /></div>
-                        </td>
-                        <td>
-                          <p className='font-semibold text-[16px] 2xl:text-[18px]'>Airlington</p>
-                          <p className='text-[#6B7280] text-[14px] font-semibold'>VA, USA</p>
-                        </td>
-                        <td className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.shipment_pickup_date.slice(0, 10)}</td>
-                        <td className='font-semibold text-[16px] 2xl:text-[18px]'>{ship._id}</td>
-                        <td>
+
+                        { ship.shipping_type === 'import' ?
+                          <td className='w-[110px]'>
+                            <p className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.origin_port_code}</p>
+                            <p className='text-[#6B7280] text-[14px] font-semibold'>{ship.origin_port_country}</p>
+                          </td>
+                        :
+                          <td className='w-[110px]'>
+                            <p className='font-semibold text-[16px] 2xl:text-[18px]'>{ship.destination_port_code}</p>
+                            <p className='text-[#6B7280] text-[14px] font-semibold'>{ship.destination_port_country}</p>
+                          </td>
+                        
+                        }
+                        <td className='font-semibold text-[16px] 2xl:text-[18px] pr-[20px]'>{ship.shipment_pickup_date.slice(0, 10)}</td>
+                        <td className='font-semibold text-[16px] 2xl:text-[18px] max-w-[50px]'><p>{ship._id.slice(0,10)}...</p></td>
+                        <td className='min-w-[230px]'>
                             <div className='flex flex-1 justify-end items-center'>
                                 <Link to='/shipmentdetail' onClick={()=>{
                                 

@@ -15,7 +15,7 @@ function MainPage({setFixed}) {
   const {pSlice}= useSelector((state)=>state.modal)
   const ref= useRef()
     const moveToTop=()=>{
-      ref.current.scrollTo({top: 0, behavior:'smooth'})
+      ref.current?.scrollTo({top: 0, behavior:'smooth'})
     
   }
 
