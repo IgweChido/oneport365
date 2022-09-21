@@ -1,117 +1,112 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://rsms.me/inter/inter.css');
+@import url("https://rsms.me/inter/inter.css");
 
-.App{
-    font-family: 'Inter', sans-serif;
+.App {
+  font-family: "Inter", sans-serif;
 }
 
-.no-border{
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+.no-border {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.no-border::-webkit-scrollbar{
-    display: none;
+.no-border::-webkit-scrollbar {
+  display: none;
 }
 
-.input_container{
-    position: relative;
+.input_container {
+  position: relative;
 }
-.input_container img{
-    position: absolute;
-    top: 42%;
-    left: 15px;
-    transform: translateY(-50%);
+.input_container img {
+  position: absolute;
+  top: 42%;
+  left: 15px;
+  transform: translateY(-50%);
 }
 
 /* sidebar */
 .about a {
-    color: #6B7280;
+  color: #6b7280;
 }
-.botr{
-    border-top-left-radius: 10px;
-}
-
-tbody tr:hover {background-color: rgb(240, 250, 252);}
-table thead tr td{
-    padding-bottom: 10px;
-}
-table tbody td{
-    border: solid 1px #E5E7EB;
-    border-style: solid none none none;
-}
-table tbody tr td:first-child{
-    border-left-style: solid; 
-}
-table tbody tr td:last-child{
-    border-right-style: solid;
-}
-table tbody tr:last-child td{
-    border-bottom-style: solid;
+.botr {
+  border-top-left-radius: 10px;
 }
 
-table tbody tr:first-child td:first-child{
-    border-top-left-radius: 10px;
+tbody tr:hover {
+  background-color: rgb(240, 250, 252);
 }
-table tbody tr:first-child td:last-child{
-    border-top-right-radius: 10px;
+table thead tr td {
+  padding-bottom: 10px;
 }
-table tbody tr:last-child td:first-child{
-    border-bottom-left-radius: 10px;
+table tbody td {
+  border: solid 1px #e5e7eb;
+  border-style: solid none none none;
 }
-table tbody tr:last-child td:last-child{
-    border-bottom-right-radius: 10px;
+table tbody tr td:first-child {
+  border-left-style: solid;
 }
-
-.input_container{
-    /* border:1px solid red; */
-    position: relative;
+table tbody tr td:last-child {
+  border-right-style: solid;
 }
-.input_container img{
-    position: absolute;
-    top: 50%;
-    
-    left: 15px;
-    transform: translateY(-50%);
-}
-.shipment-button button{
-   
+table tbody tr:last-child td {
+  border-bottom-style: solid;
 }
 
-
-
-.over{
-    overflow-x: auto !important;
-    
-   
+table tbody tr:first-child td:first-child {
+  border-top-left-radius: 10px;
+}
+table tbody tr:first-child td:last-child {
+  border-top-right-radius: 10px;
+}
+table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
 }
 
-.t-scroll::-webkit-scrollbar{
-    width: 3px;
-   
+.input_container {
+  /* border:1px solid red; */
+  position: relative;
+}
+.input_container img {
+  position: absolute;
+  top: 50%;
+
+  left: 15px;
+  transform: translateY(-50%);
+}
+.shipment-button button {
+}
+
+.over {
+  overflow-x: auto !important;
+}
+
+.t-scroll::-webkit-scrollbar {
+  width: 3px;
 }
 
 .t-scroll::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-    
-  }
+  background: #f1f1f1;
+}
 
-  .t-scroll::-webkit-scrollbar-thumb {
-    background: rgb(184, 184, 184);
-    border-radius: 3px; 
-  }
+.t-scroll::-webkit-scrollbar-thumb {
+  background: rgb(184, 184, 184);
+  border-radius: 3px;
+}
 
-  .t-scroll::-webkit-scrollbar-thumb:hover {
-    background: rgb(143, 143, 143); 
-  }
+.t-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(143, 143, 143);
+}
 
-  .t-overflow{
-    -ms-overflow-style: none;
-        scrollbar-width: none;
-  }
+.t-overflow {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-  .t-overflow::-webkit-scrollbar{
-    display: none;
+.t-overflow::-webkit-scrollbar {
+  display: none;
 }
