@@ -42,11 +42,19 @@ function ExportBox() {
         bg-no-repeat bg-center'>
 
             {/* part1 */}
-            <div>
-                <p className='font-semibold text-xs mb-6'>PORT OF DISCHARGE</p>
-                <p className='font-bold  text-2xl mb-2'>{customerr.dest.code}</p>
-                <p className='font-semibold text-sm'>{customerr.dest.city}</p>
-            </div>
+            { customerr.dest.type === 'import'?
+                <div>
+                    <p className='font-semibold text-xs mb-6'>PORT OF DISCHARGE</p>
+                    <p className='font-bold  text-2xl mb-2'>{customerr.dest.originICode}</p>
+                    <p className='font-semibold text-sm'>{customerr.dest.originICountry}</p>
+                </div>
+                :
+                <div>
+                    <p className='font-semibold text-xs mb-6'>PORT OF DISCHARGE</p>
+                    <p className='font-bold  text-2xl mb-2'>{customerr.dest.originECode}</p>
+                    <p className='font-semibold text-sm'>{customerr.dest.originECountry}</p>
+                </div>
+            }
 
             {/* image */}
             <div>
@@ -54,11 +62,20 @@ function ExportBox() {
             </div>
 
             {/* part2 */}
-            <div>
-                <p className='font-semibold text-xs mb-6'>DELIVERY LOCATION</p>
-                <p className='font-bold  text-2xl mb-2'>Arlington</p>
-                <p className='font-semibold text-sm'>VA, USA</p>
-            </div>
+            {
+                customerr.dest.type === 'import'?
+                <div>
+                    <p className='font-semibold text-xs mb-6'>DELIVERY LOCATION</p>
+                    <p className='font-bold  text-2xl mb-2'>{customerr.dest.destICode}</p>
+                    <p className='font-semibold text-sm'>{customerr.dest.destICountry}</p>
+                </div>
+                :
+                <div>
+                    <p className='font-semibold text-xs mb-6'>DELIVERY LOCATION</p>
+                    <p className='font-bold  text-2xl mb-2'>{customerr.dest.destECode}</p>
+                    <p className='font-semibold text-sm'>{customerr.dest.destECountry}</p>
+                </div>
+            }
         </div>
 
 

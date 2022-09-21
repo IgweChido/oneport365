@@ -215,8 +215,16 @@ function ShipmentsTable({data, input, typeButton, date, date1, error, loading}) 
                                 
                                     dispatch(AddCurrentDest({
                                       id: ship._id,
-                                      code: ship.origin_port_code,
-                                      city:`${ship.origin_port_city}, ${ship.origin_port_country}`,
+                                      destICode: ship.origin_port_code,
+                                      destICountry: ship.origin_port_country,
+                                      originICode: ship.delivery_location,
+                                      originICountry: ship.state,
+
+                                      destECode: ship.destination_port_code,
+                                      destECountry: ship.destination_port_country,
+                                      originECode: ship.pickup_location,
+                                      originECountry: ship.state,
+
                                       type: ship.shipping_type,
                                       date: ship.shipment_pickup_date.slice(0, 10)
                                     }))
