@@ -39,7 +39,7 @@ function ExportBox() {
 
         {/* body */}
         <div
-          className=" rounded-b-xl px-10 py-8 flex gap-x-10 items-center h-40  bg-exp-img bg-cover 
+          className=" rounded-b-xl px-10 py-8 flex gap-x-10 items-center h-auto laptop:h-40  bg-exp-img bg-cover 
         bg-no-repeat bg-center"
         >
           {/* part1 */}
