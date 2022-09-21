@@ -33,6 +33,9 @@ function ShipmentsTable({data, input, typeButton, date, date1, error, loading}) 
                 ((ship.destination_port_city?.toString().toLowerCase()+'').indexOf(input.toLowerCase()) > -1)=== true||
                 ((ship.destination_port_country?.toString().toLowerCase()+'').indexOf(input.toLowerCase()) > -1)=== true||
                 ((ship.destination_port_code?.toString().toLowerCase()+'').indexOf(input.toLowerCase()) > -1)=== true||
+                ((ship.delivery_location?.toString().toLowerCase()+'').indexOf(input.toLowerCase()) > -1)=== true||
+                ((ship.pickup_location?.toString().toLowerCase()+'').indexOf(input.toLowerCase()) > -1)=== true||
+                ((ship.state?.toString().toLowerCase()+'').indexOf(input.toLowerCase()) > -1)=== true||
                 ((ship._id?.toString().toLowerCase()).indexOf(input.toLowerCase()+'') > -1)=== true
                 )
              )

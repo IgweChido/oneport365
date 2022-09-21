@@ -11,7 +11,7 @@ function Head({setFixed}) {
   const location = useLocation()
   const dispatch = useDispatch()
   return (
-    <div className=' px-[40px] lg:px-[50px] 2xl:px-[70px] h-[70px] laptop:h-[130px] border-t-[1px]  border-b-[1px] left-0 laptop:left-[250px] 
+    <div className='px-[16px] sm:px-[40px] lg:px-[50px] 2xl:px-[70px] h-[70px] laptop:h-[130px] border-t-[1px]  border-b-[1px] left-0 laptop:left-[250px] 
     2xl:left-[319px] right-0 laptop:right-[18px] fixed  bg-white z-10 flex justify-between items-center'>
 
       {/* small logo */}

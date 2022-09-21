@@ -36,7 +36,7 @@ console.log(customerr.id_cust.id)
   return (
     <div className="flex-1  relative  overflow-auto w-full  "  ref={ref} >
         <Head/>
-        <div className='py-[150px] laptop:py-[200px] px-[40px] lg:px-[50px] 2xl:px-[70px] ' >
+        <div className='py-[150px] laptop:py-[200px] px-[16px] sm:px-[40px] lg:px-[50px] 2xl:px-[70px] ' >
           { pSlice &&
             <PhoneNavigation setFixed={setFixed}/>
             }

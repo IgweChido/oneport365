@@ -56,7 +56,7 @@ function ShipmentDateButton({setDate, setDate1}) {
               btn &&
               <div className=' absolute top-[60px] rounded-md border border-[#F6F6F6] w-[193px] md:w-full left-0 bg-white z-30'>
                   <div className='px-2 py-3'>
-                    <label>Range 1:</label>
+                    <label>Start Date:</label>
                     <input onKeyUp={(e)=>{
                         setDate(e.target.value)
                     }}
@@ -66,7 +66,7 @@ function ShipmentDateButton({setDate, setDate1}) {
                   </div>
 
                   <div className='px-2 py-3'>
-                    <label>Range 2:</label>
+                    <label>End Date:</label>
                     <input onKeyUp={(e)=>{
                         setDate1(e.target.value)
                     }}
